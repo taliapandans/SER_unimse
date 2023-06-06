@@ -40,7 +40,7 @@ class Solver(object):
         self.use_adapter = hp.use_adapter
 
         # Training hyperarams
-        model_path = '../t5-base'
+        model_path = 't5-base'
         # model_path = '../t5-large'
         self.tokenizer = T5Tokenizer.from_pretrained(model_path)
         self.tokenizer.padding_side = "left"

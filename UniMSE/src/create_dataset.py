@@ -69,9 +69,9 @@ class MOSI:
 
         # If cached data if already exists
         try:
-            self.train = load_pickle(DATA_PATH + '/train_align.pkl')
-            self.dev = load_pickle(DATA_PATH + '/dev_align.pkl')
-            self.test = load_pickle(DATA_PATH + '/test_align.pkl')
+            self.train = load_pickle('F:/UniMSE-main/datasets/MOSI' + '/new_train_align_v4_0610.pkl')
+            self.dev = load_pickle('F:/UniMSE-main/datasets/MOSI' + '/new_dev_align_v4_0610.pkl')
+            self.test = load_pickle('F:/UniMSE-main/datasets/MOSI' + '/new_test_align_v4_0610.pkl')
             self.multi = True
             self.pretrained_emb, self.word2id = None, None
 
@@ -236,9 +236,9 @@ class MOSEI:
 
         # If cached data if already exists
         try:
-            self.train = load_pickle(DATA_PATH + '/train_align.pkl')
-            self.dev = load_pickle(DATA_PATH + '/dev_align.pkl')
-            self.test = load_pickle(DATA_PATH + '/test_align.pkl')
+            self.train = load_pickle('F:/UniMSE-main/datasets/MOSEI' + '/new_train_align_v4_0610.pkl')
+            self.dev = load_pickle('F:/UniMSE-main/datasets/MOSEI' + '/new_dev_align_v4_0610.pkl')
+            self.test = load_pickle('F:/UniMSE-main/datasets/MOSEI' + '/new_test_align_v4_0610.pkl')
             self.multi = True
             self.pretrained_emb, self.word2id = None, None
 
@@ -251,7 +251,7 @@ class MOSEI:
             # dataset.align(text_field, collapse_functions=[avg])
             # load pickle file for unaligned acoustic and visual source
             #pickle_filename = '../datasets/MOSEI/mosei_senti_data_noalign.pkl'
-            pickle_filename = '../datasets/MOSEI/mosei_data_0421.pkl'
+            pickle_filename = '../datasets/MOSEI/mosei_data_0610.pkl'
 
             csv_filename = '../datasets/MOSEI/MOSEI-label.csv'
 
@@ -370,9 +370,9 @@ class MOSEI:
             self.pretrained_emb = None
 
             # Save pickles
-            to_pickle(train, DATA_PATH + '/train_align.pkl')
-            to_pickle(dev, DATA_PATH + '/dev_align.pkl')
-            to_pickle(test, DATA_PATH + '/test_align.pkl')
+            to_pickle(train, 'F:/UniMSE-main/datasets/MOSEI' + '/train_align.pkl')
+            to_pickle(dev, 'F:/UniMSE-main/datasets/MOSEI' + '/dev_align.pkl')
+            to_pickle(test, 'F:/UniMSE-main/datasets/MOSEI' + '/test_align.pkl')
 
     def get_data(self, mode):
 
@@ -459,54 +459,54 @@ class MOSELD:
             print("Mode is not set properly (train/dev/test)")
             exit()
             
-class MOSELDMP:
-    def __init__(self, config, is_test=False):
-
-        if config.sdk_dir is None:
-            print("SDK path is not specified! Please specify first in constants/paths.py")
-            exit(0)
-        else:
-            sys.path.append(str(config.sdk_dir))
-
-        DATA_PATH = str(config.dataset_dir)
-        CACHE_PATH = DATA_PATH + '/embedding_and_mapping.pt'
-
-        # If cached data if already exists
-
-        # self.train = load_pickle(DATA_PATH + '/new_moseldmp_train_align_v4_0424_a_6c_2.pkl')
-        # self.dev = load_pickle(DATA_PATH + '/new_moseldmp_dev_align_v4_0424_a_6c_2.pkl')
-        # self.mosi_test = load_pickle(DATA_PATH + '/new_mosi_test_align_v4_0424_a_6c_2.pkl')
-        # self.mosei_test = load_pickle(DATA_PATH + '/new_mosei_test_align_v4_0424_a_6c_2.pkl')
-        # self.meld_test = load_pickle(DATA_PATH + '/new_meld_test_align_v4_0424_a_6c_2.pkl')
-        # self.iemocap_test = load_pickle(DATA_PATH + '/new_iemocap_test_align_v4_0424_a_6c_2.pkl')
-        
-        self.train = load_pickle(DATA_PATH + '/new_moseldmp_train_align_v4_0424_a_6c_contexts.pkl')
-        self.dev = load_pickle(DATA_PATH + '/new_moseldmp_dev_align_v4_0424_a_6c_contexts.pkl')
-        self.mosi_test = load_pickle(DATA_PATH + '/new_mosi_test_align_v4_0424_a_6c_contexts.pkl')
-        self.mosei_test = load_pickle(DATA_PATH + '/new_mosei_test_align_v4_0424_a_6c_contexts.pkl')
-        self.meld_test = load_pickle(DATA_PATH + '/new_meld_test_align_v4_0424_a_6c_contexts.pkl')
-        self.iemocap_test = load_pickle(DATA_PATH + '/new_iemocap_test_align_v4_0424_a_6c_contexts.pkl')
-
-        self.multi = True
-        self.pretrained_emb, self.word2id = None, None
-
-    def get_data(self, mode):
-
-        if mode == "train":
-            return self.train, self.word2id, self.pretrained_emb
-        elif mode == "valid":
-            return self.dev, self.word2id, self.pretrained_emb
-        elif mode == "test_mosi":
-            return self.mosi_test, self.word2id, self.pretrained_emb
-        elif mode == "test_mosei":
-            return self.mosei_test, self.word2id, self.pretrained_emb
-        elif mode == 'test_meld':
-            return self.meld_test, self.word2id, self.pretrained_emb
-        elif mode == 'test_iemocap':
-            return self.iemocap_test, self.word2id, self.pretrained_emb
-        else:
-            print("Mode is not set properly (train/dev/test)")
-            exit()
+# class MOSELDMP:
+#     def __init__(self, config, is_test=False):
+#
+#         if config.sdk_dir is None:
+#             print("SDK path is not specified! Please specify first in constants/paths.py")
+#             exit(0)
+#         else:
+#             sys.path.append(str(config.sdk_dir))
+#
+#         DATA_PATH = str(config.dataset_dir)
+#         CACHE_PATH = DATA_PATH + '/embedding_and_mapping.pt'
+#
+#         # If cached data if already exists
+#
+#         # self.train = load_pickle(DATA_PATH + '/new_moseldmp_train_align_v4_0424_a_6c_2.pkl')
+#         # self.dev = load_pickle(DATA_PATH + '/new_moseldmp_dev_align_v4_0424_a_6c_2.pkl')
+#         # self.mosi_test = load_pickle(DATA_PATH + '/new_mosi_test_align_v4_0424_a_6c_2.pkl')
+#         # self.mosei_test = load_pickle(DATA_PATH + '/new_mosei_test_align_v4_0424_a_6c_2.pkl')
+#         # self.meld_test = load_pickle(DATA_PATH + '/new_meld_test_align_v4_0424_a_6c_2.pkl')
+#         # self.iemocap_test = load_pickle(DATA_PATH + '/new_iemocap_test_align_v4_0424_a_6c_2.pkl')
+#
+#         self.train = load_pickle(DATA_PATH + '/new_moseldmp_train_align_v4_0424_a_6c_contexts.pkl')
+#         self.dev = load_pickle(DATA_PATH + '/new_moseldmp_dev_align_v4_0424_a_6c_contexts.pkl')
+#         self.mosi_test = load_pickle(DATA_PATH + '/new_mosi_test_align_v4_0424_a_6c_contexts.pkl')
+#         self.mosei_test = load_pickle(DATA_PATH + '/new_mosei_test_align_v4_0424_a_6c_contexts.pkl')
+#         self.meld_test = load_pickle(DATA_PATH + '/new_meld_test_align_v4_0424_a_6c_contexts.pkl')
+#         self.iemocap_test = load_pickle(DATA_PATH + '/new_iemocap_test_align_v4_0424_a_6c_contexts.pkl')
+#
+#         self.multi = True
+#         self.pretrained_emb, self.word2id = None, None
+#
+#     def get_data(self, mode):
+#
+#         if mode == "train":
+#             return self.train, self.word2id, self.pretrained_emb
+#         elif mode == "valid":
+#             return self.dev, self.word2id, self.pretrained_emb
+#         elif mode == "test_mosi":
+#             return self.mosi_test, self.word2id, self.pretrained_emb
+#         elif mode == "test_mosei":
+#             return self.mosei_test, self.word2id, self.pretrained_emb
+#         elif mode == 'test_meld':
+#             return self.meld_test, self.word2id, self.pretrained_emb
+#         elif mode == 'test_iemocap':
+#             return self.iemocap_test, self.word2id, self.pretrained_emb
+#         else:
+#             print("Mode is not set properly (train/dev/test)")
+#             exit()
 
 class IEMOCAP:
     def __init__(self, config):
@@ -519,10 +519,10 @@ class IEMOCAP:
         DATA_PATH = str(config.dataset_dir)
 
         # If cached data if already exists
-        data = load_pickle(DATA_PATH + '/iemocap_data.pkl')
-        self.train = data['train']
-        self.dev = data['valid']
-        self.test = data['test']
+        data = load_pickle('F:/UniMSE-main/datasets/IEMOCAP' + '/iemocap_data_0610.pkl')
+        self.train = pd.read_csv('F:/UniMSE-main/datasets/IEMOCAP/train.tsv',sep='\t')
+        self.dev = pd.read_csv('F:/UniMSE-main/datasets/IEMOCAP/valid.tsv',sep='\t')
+        self.test = pd.read_csv('F:/UniMSE-main/datasets/IEMOCAP/test.tsv',sep='\t')
         self.multi=True
         self.pretrained_emb, self.word2id = None, None
 
@@ -639,9 +639,9 @@ class MELD:
         DATA_PATH = str(config.dataset_dir)
 
         # If cached data if already exists
-        self.train = load_pickle(DATA_PATH + '/train.pkl')
-        self.dev = load_pickle(DATA_PATH + '/dev.pkl')
-        self.test = load_pickle(DATA_PATH + '/test.pkl')
+        self.train = load_pickle('F:/UniMSE-main/datasets/MELD' + '/new_train_align_v4_0610_sep_contexts_speaker.pkl')
+        self.dev = load_pickle('F:/UniMSE-main/datasets/MELD' + 'new_dev_align_v4_0610_sep_contexts_speaker.pkl')
+        self.test = load_pickle('F:/UniMSE-main/datasets/MELD' + '/new_test_align_v4_0610_sep_contexts_speaker.pkl')
 
         self.multi=False
 

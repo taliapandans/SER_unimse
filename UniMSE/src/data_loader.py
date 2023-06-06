@@ -11,9 +11,9 @@ from transformers import T5Tokenizer
 import random
 from utils.tools import contain_nonum, is_number
 
-from create_dataset import MOSI, MOSEI, MOSEII, MOSELD, MOSELDMP, IEMOCAP, MELD, EmotionLines, Laptops, Restaurants, PAD, UNK
+from create_dataset import MOSI, MOSEI, MOSEII, MOSELD, IEMOCAP, MELD, PAD, UNK
 from config import DEVICE
-model_path = '../t5-base'
+model_path = 't5-base'
 # model_path = '../t5-large'
 tokenizer = T5Tokenizer.from_pretrained(model_path)
 
@@ -28,36 +28,13 @@ class MSADataset(Dataset):
         elif "mosei" in str(config.data_dir).lower():
             dataset = MOSEI(config)
             self.multi = True
-        elif 'moselap' in str(config.data_dir).lower():
-            dataset = MOSELAP(config)
-            self.multi = True
-        elif 'moselprs' in str(config.data_dir).lower():
-            dataset = MOSELPRS(config)
-            self.multi = True
-        elif 'moseldmp' in str(config.data_dir).lower():
-            dataset = MOSELDMP(config)
-            self.multi = True
-        elif 'moseld' in str(config.data_dir).lower():
-            dataset = MOSELD(config)
-            self.multi = True
-        elif 'mos' in str(config.data_dir).lower():
-            dataset = MOSEII(config)
-            self.multi = True
+
         elif 'iemocap' in str(config.data_dir).lower():
             dataset = IEMOCAP(config)
             self.multi = True
         elif 'meld' in str(config.data_dir).lower():
             dataset = MELD(config)
             self.multi = True
-        elif 'emotionlines' in str(config.data_dir).lower():
-            dataset = EmotionLines(config)
-            self.multi = False
-        elif 'laptops' in str(config.data_dir).lower():
-            dataset = Laptops(config)
-            self.multi = False
-        elif 'restaurants' in str(config.data_dir).lower():
-            dataset = Restaurants(config)
-            self.multi = False
         else:
             print("Dataset not defined correctly")
             exit()
