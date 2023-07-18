@@ -42,7 +42,7 @@ def get_args():
     parser.add_argument('-f', default='', type=str)
 
     # Tasks
-    parser.add_argument('--dataset', type=str, default='mosei', choices=['mosi','mosei', 'mos', 'moseld', 'moseldmp', 'iemocap', 'meld', 'emotionlines', 'laptops', 'restaurants'],
+    parser.add_argument('--dataset', type=str, default='meld', choices=['mosi','mosei', 'mos', 'moseld', 'moseldmp', 'iemocap', 'meld', 'emotionlines', 'laptops', 'restaurants'],
                         help='dataset to use (default: mosei)')
     parser.add_argument('--data_path', type=str, default='datasets',
                         help='path for storing the dataset')

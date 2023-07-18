@@ -64,14 +64,14 @@ class MOSI:
         else:
             sys.path.append(str(config.sdk_dir))
 
-        DATA_PATH = str(config.dataset_dir)
+        DATA_PATH = "/content/drive/MyDrive/UniMSE/Simcse/datasets/MOSI"
         CACHE_PATH = DATA_PATH + '/embedding_and_mapping.pt'
 
         # If cached data if already exists
         try:
-            self.train = load_pickle('F:/UniMSE-main/datasets/MOSI' + '/new_train_align_v4_0610.pkl')
-            self.dev = load_pickle('F:/UniMSE-main/datasets/MOSI' + '/new_dev_align_v4_0610.pkl')
-            self.test = load_pickle('F:/UniMSE-main/datasets/MOSI' + '/new_test_align_v4_0610.pkl')
+            self.train = load_pickle(DATA_PATH + '/new_train_align_v4_0610.pkl')
+            self.dev = load_pickle(DATA_PATH + '/new_dev_align_v4_0610.pkl')
+            self.test = load_pickle(DATA_PATH + '/new_test_align_v4_0610.pkl')
             self.multi = True
             self.pretrained_emb, self.word2id = None, None
 
@@ -82,8 +82,9 @@ class MOSI:
                 check_call(' '.join(['mkdir', '-p', DATA_PATH]), shell=True)
 
             # load pickle file for unaligned acoustic and visual source
-            pickle_filename = '../datasets/MOSI/mosi_data_noalign.pkl'
-            csv_filename = '../datasets/MOSI/MOSI-label.csv'
+            pickle_filename = DATA_PATH + '/mosei_data_0610.pkl'
+
+            csv_filename =  DATA_PATH + 'MOSEI-label.csv'
 
             with open(pickle_filename, 'rb') as f:
                 d = pickle.load(f)
@@ -231,14 +232,14 @@ class MOSEI:
         else:
             sys.path.append(str(config.sdk_dir))
 
-        DATA_PATH = str(config.dataset_dir)
+        DATA_PATH = "/content/drive/MyDrive/UniMSE/Simcse/datasets/MOSEI"
         CACHE_PATH = DATA_PATH + '/embedding_and_mapping.pt'
 
         # If cached data if already exists
         try:
-            self.train = load_pickle('F:/UniMSE-main/datasets/MOSEI' + '/new_train_align_v4_0610.pkl')
-            self.dev = load_pickle('F:/UniMSE-main/datasets/MOSEI' + '/new_dev_align_v4_0610.pkl')
-            self.test = load_pickle('F:/UniMSE-main/datasets/MOSEI' + '/new_test_align_v4_0610.pkl')
+            self.train = load_pickle(DATA_PATH + '/new_train_align_v4_0610.pkl')
+            self.dev = load_pickle(DATA_PATH + '/new_dev_align_v4_0610.pkl')
+            self.test = load_pickle(DATA_PATH + '/new_test_align_v4_0610.pkl')
             self.multi = True
             self.pretrained_emb, self.word2id = None, None
 
@@ -251,9 +252,9 @@ class MOSEI:
             # dataset.align(text_field, collapse_functions=[avg])
             # load pickle file for unaligned acoustic and visual source
             #pickle_filename = '../datasets/MOSEI/mosei_senti_data_noalign.pkl'
-            pickle_filename = '../datasets/MOSEI/mosei_data_0610.pkl'
+            pickle_filename = DATA_PATH + '/mosei_data_0610.pkl'
 
-            csv_filename = '../datasets/MOSEI/MOSEI-label.csv'
+            csv_filename = DATA_PATH + '/MOSEI-label.csv'
 
             with open(pickle_filename, 'rb') as f:
                 d = pickle.load(f)
@@ -370,9 +371,9 @@ class MOSEI:
             self.pretrained_emb = None
 
             # Save pickles
-            to_pickle(train, 'F:/UniMSE-main/datasets/MOSEI' + '/train_align.pkl')
-            to_pickle(dev, 'F:/UniMSE-main/datasets/MOSEI' + '/dev_align.pkl')
-            to_pickle(test, 'F:/UniMSE-main/datasets/MOSEI' + '/test_align.pkl')
+            to_pickle(train, DATA_PATH + '/train_align.pkl')
+            to_pickle(dev, DATA_PATH + '/dev_align.pkl')
+            to_pickle(test, DATA_PATH + '/test_align.pkl')
 
     def get_data(self, mode):
 
@@ -516,13 +517,13 @@ class IEMOCAP:
         else:
             sys.path.append(str(config.sdk_dir))
 
-        DATA_PATH = str(config.dataset_dir)
+        DATA_PATH = "/content/drive/MyDrive/UniMSE/Simcse/datasets/IEMOCAP"
 
         # If cached data if already exists
-        data = load_pickle('F:/UniMSE-main/datasets/IEMOCAP' + '/iemocap_data_0610.pkl')
-        self.train = pd.read_csv('F:/UniMSE-main/datasets/IEMOCAP/train.tsv',sep='\t')
-        self.dev = pd.read_csv('F:/UniMSE-main/datasets/IEMOCAP/valid.tsv',sep='\t')
-        self.test = pd.read_csv('F:/UniMSE-main/datasets/IEMOCAP/test.tsv',sep='\t')
+        data = load_pickle(DATA_PATH + '/iemocap_data_0610.pkl')
+        self.train = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/train.tsv',sep='\t')
+        self.dev = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/valid.tsv',sep='\t')
+        self.test = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/test.tsv',sep='\t')
         self.multi=True
         self.pretrained_emb, self.word2id = None, None
 
@@ -636,12 +637,12 @@ class MELD:
         else:
             sys.path.append(str(config.sdk_dir))
 
-        DATA_PATH = str(config.dataset_dir)
+        DATA_PATH = '/content/drive/MyDrive/UniMSE/Simcse/datasets/MELD'
 
         # If cached data if already exists
-        self.train = load_pickle('F:/UniMSE-main/datasets/MELD' + '/new_train_align_v4_0610_sep_contexts_speaker.pkl')
-        self.dev = load_pickle('F:/UniMSE-main/datasets/MELD' + 'new_dev_align_v4_0610_sep_contexts_speaker.pkl')
-        self.test = load_pickle('F:/UniMSE-main/datasets/MELD' + '/new_test_align_v4_0610_sep_contexts_speaker.pkl')
+        self.train = load_pickle(DATA_PATH + '/new_train_align_v4_0610_sep_contexts_speaker.pkl')
+        self.dev = load_pickle(DATA_PATH + '/new_dev_align_v4_0610_sep_contexts_speaker.pkl')
+        self.test = load_pickle(DATA_PATH + '/new_test_align_v4_0610_sep_contexts_speaker.pkl')
 
         self.multi=False
 

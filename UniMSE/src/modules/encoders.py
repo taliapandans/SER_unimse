@@ -4,14 +4,14 @@ import time
 
 from torch import nn
 from torch.nn.utils.rnn import pad_sequence, pack_padded_sequence, pad_packed_sequence
-from transformers import BertModel, BertConfig
-# from modules.modeling_t5 import T5ForConditionalGeneration
-# from modules.modeling_t5 import T5Model
-# from modules.modeling_t5 import T5EncoderModel
+# from transformers import BertModel, BertConfig
+from modules.modeling_t5 import T5ForConditionalGeneration
+from modules.modeling_t5 import T5Model
+from modules.modeling_t5 import T5EncoderModel
 
-from modules.modeling_t5_prefix import T5ForConditionalGeneration
-from modules.modeling_t5_prefix import T5Model
-from modules.modeling_t5_prefix import T5EncoderModel
+# from modeling_t5_prefix import T5ForConditionalGeneration
+# from modeling_t5_prefix import T5Model
+# from modeling_t5_prefix import T5EncoderModel
 
 # from modules.modeling_t5_withMI import T5ForConditionalGeneration
 # from modules.modeling_t5_withMI import T5Model
@@ -30,7 +30,7 @@ class LanguageEmbeddingLayer(nn.Module):
         self.init_checkpoint = hp.init_checkpoint
         self.hp = hp
 
-        model_path = '../t5-base'
+        model_path = 't5-base'
         # model_path = '../t5-large'
 
         

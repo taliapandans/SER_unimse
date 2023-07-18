@@ -9,11 +9,14 @@ import torch.nn.functional as F
 from modules.position_embedding import SinusoidalPositionalEmbedding
 from modules.multihead_attention import MultiheadAttention
 from modules.transformer_layer import TransformerEncoderLayer, Linear, LayerNorm
-
+# from position_embedding import SinusoidalPositionalEmbedding
+# from multihead_attention import MultiheadAttention
+# from transformer_layer import TransformerEncoderLayer, Linear, LayerNorm
 from sklearn.manifold import TSNE
+#from sklearn.manifold._t_sne import TSNE
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
-import os
+# import os
 
 
 logger = logging.getLogger(__name__)

@@ -3,7 +3,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import plot_confusion_matrix
+# from sklearn.metrics import plot_confusion_matrix
 from sklearn.metrics import classification_report
 from sklearn.metrics import f1_score
 from itertools import chain
