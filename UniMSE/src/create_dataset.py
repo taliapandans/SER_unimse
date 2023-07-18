@@ -521,9 +521,12 @@ class IEMOCAP:
 
         # If cached data if already exists
         data = load_pickle(DATA_PATH + '/iemocap_data_0610.pkl')
-        self.train = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/train.tsv',sep='\t')
-        self.dev = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/valid.tsv',sep='\t')
-        self.test = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/test.tsv',sep='\t')
+        #self.train = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/train.tsv',sep='\t')
+        #self.dev = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/valid.tsv',sep='\t')
+        #self.test = pd.read_csv('/content/drive/MyDrive/UniMSE/Simcse/split_dataset/iemocap/test.tsv',sep='\t')
+        self.train = load_pickle(DATA_PATH + '/new_train_por_v4_0610_6c_sep_contexts.pkl')
+        self.dev = load_pickle(DATA_PATH + '/new_dev_por_v4_0610_6c_sep_contexts.pkl')
+        self.test = load_pickle(DATA_PATH + '/new_test_por_v4_0610_6c_sep_contexts.pkl')
         self.multi=True
         self.pretrained_emb, self.word2id = None, None
 
